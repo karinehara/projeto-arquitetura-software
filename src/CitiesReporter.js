@@ -9,15 +9,17 @@ export default class CitiesReporter extends ICitiesReporter {
 
     _read(filename) {
         this._cities_json = fs.readFileSync(filename);
+        return this._cities_json;
     }
 
-    _parseJSON() {
-        this._cities = JSON.parse(this._cities_json);
+    _parseJSON(cities) {
+        // console.log(cities);
+        this._cities = JSON.parse(cities);
     }
 
-    report(filename) {
-        this._read(filename);
-        this._parseJSON();
+    report(cities) {
+        // this._read(filename);
+        this._parseJSON(cities);
         return this._formart.outputReport(this._cities);
     }
 }

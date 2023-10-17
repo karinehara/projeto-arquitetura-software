@@ -43,12 +43,10 @@ compositeReportFormater.addReportFormater(xml);
 // console.log(compositeReportFormater.outputReport(cities));
 
 const citiesReporter = new CitiesReporter({ formart: compositeReportFormater });
-const cachedCitiesReporter = new CachedCitiesReporter(citiesReporter);
+let cachedCitiesReporter = new CachedCitiesReporter(citiesReporter);
 console.log(cachedCitiesReporter._read(filename));
 
 const citiesReporter2 = new CitiesReporter({ formart: html });
-const cachedCitiesReporter2= new CachedCitiesReporter(citiesReporter);
-
-
-console.log(cachedCitiesReporter2._read(filename));
+cachedCitiesReporter.addCitiesReporter(citiesReporter2);
+console.log(cachedCitiesReporter._read(filename));
 
