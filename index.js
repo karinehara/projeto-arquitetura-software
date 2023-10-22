@@ -32,6 +32,7 @@ const xml = new FormaterXML();
 // console.log(csv.outputReport(cities));
 // console.log(xml.outputReport(cities));
 
+// 1
 compositeReportFormater.addReportFormater(html);
 compositeReportFormater.addReportFormater(json);
 
